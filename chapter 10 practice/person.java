@@ -21,7 +21,7 @@ public class person implements Comparable<person>
 
         if(this.name.compareTo(otherperson.name) >0)
         {
-            return 1;
+            return -1;
         }else if(this.name.compareTo(otherperson.name) <0)
         {
             return 1;
