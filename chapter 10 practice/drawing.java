@@ -14,17 +14,16 @@ public class drawing
 {
     private int x;
     private int y;
-    public drawing(int[] coord)
+    public drawing(int xfar, int yfar)
     {
-        x = coord[0];
-        y = coord[1];
+        x = xfar;
+        y = yfar;
     }
-    
+
     public void draw(Graphics2D g2)
     {
-        Ellipse2D.Double dot = new Ellipse2D.Double(x, y, 5, 5);
-        //Line2D.Double roofTop = new Line2D.Double(r2,r3);
-        
-        g2.draw(dot);
-}
+        Ellipse2D.Double dot = new Ellipse2D.Double(x, y, 15, 15);
+
+        g2.fill(dot);
+    }
 }

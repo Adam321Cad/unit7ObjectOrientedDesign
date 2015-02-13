@@ -14,6 +14,8 @@ import java.awt.event.MouseEvent;
  */
 public class TriangleGUI extends JFrame
 {
+    private static int x;
+    private static int y;
     public static void main(String[] args)
     {
         JFrame frame = new JFrame();
@@ -22,8 +24,8 @@ public class TriangleGUI extends JFrame
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         MousePressListener m = new MousePressListener();
-        drawing d = new drawing(m.mouseClicked());
-        d.draw();
+        triangle t = new triangle(x,y);
+        frame.add(t);
 
         frame.setVisible(true);
 
@@ -33,9 +35,9 @@ public class TriangleGUI extends JFrame
     {
         public void mouseClicked(MouseEvent event)
         {
-            int x = event.getX();
-            int y = event.getY();
-            int[] bla = {x,y};
+            x = event.getX();
+            y = event.getY();
+            
         }
 
         public void mousePressed(MouseEvent e) {}
