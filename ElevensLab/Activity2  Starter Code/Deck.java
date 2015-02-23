@@ -30,6 +30,7 @@ public class Deck {
      */
     public Deck(String[] ranks, String[] suits, int[] values) {
         /* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        cards = new ArrayList<Card>();
         for(int j = 0;j<suits.length;j++)
         {
             for(int i = 0; i<ranks.length; i++)
