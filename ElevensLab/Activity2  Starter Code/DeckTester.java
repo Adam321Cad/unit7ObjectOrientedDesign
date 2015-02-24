@@ -15,9 +15,10 @@ public class DeckTester {
         
         Deck d = new Deck(ranks, suits, values);
         System.out.println(d.isEmpty());
-        p(d.isEmpty());
+        //p(d.isEmpty());
         p(d.toString());
-        p("hello");
+        p(d.deal().toString());
+        p(d.toString());
     }
     
     public static void p(String s)
