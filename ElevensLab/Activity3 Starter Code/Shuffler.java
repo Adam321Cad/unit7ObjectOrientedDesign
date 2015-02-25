@@ -1,3 +1,4 @@
+import java.util.Random;
 /**
  * This class provides a convenient way to test shuffling methods.
  */
@@ -9,14 +10,13 @@ public class Shuffler {
      */
     private static final int SHUFFLE_COUNT = 1;
 
-
     /**
      * Tests shuffling methods.
      * @param args is not used.
      */
     public static void main(String[] args) {
         System.out.println("Results of " + SHUFFLE_COUNT +
-                                 " consecutive perfect shuffles:");
+            " consecutive perfect shuffles:");
         int[] values1 = {0, 1, 2, 3};
         for (int j = 1; j <= SHUFFLE_COUNT; j++) {
             perfectShuffle(values1);
@@ -29,7 +29,7 @@ public class Shuffler {
         System.out.println();
 
         System.out.println("Results of " + SHUFFLE_COUNT +
-                                 " consecutive efficient selection shuffles:");
+            " consecutive efficient selection shuffles:");
         int[] values2 = {0, 1, 2, 3};
         for (int j = 1; j <= SHUFFLE_COUNT; j++) {
             selectionShuffle(values2);
@@ -41,7 +41,6 @@ public class Shuffler {
         }
         System.out.println();
     }
-
 
     /**
      * Apply a "perfect shuffle" to the argument.
@@ -56,28 +55,31 @@ public class Shuffler {
         int[] list2 = new int[values.length/2];
         for(int i = values.length/2; i<values.length; i++)
         {
-          list1[i-values.length/2] = values[i];
+            list1[i-values.length/2] = values[i];
+            // System.out.println(list1[i-values.length/2]);
         }
         for(int i = 0; i<values.length/2; i++)
         {
-          list2[i] = values[i];
+            list2[i] = values[i];
         }
-        
+        int count = 0;
+        int count2 = 0;
         for(int i = 0; i<values.length; i++)
         {
-            int count = 0;
-            int count2 = 0;
-            if(i%2 !=0){
-            shuffled[i] = list1[count];
-            count++;
-        }else{
-            shuffled[i] = list2[count2];
-            count2++;
+            if(i%2 ==0){
+                values[i] = list1[count];
+                //System.out.println(list1[count]);
+                count++;
+            }else{
+                values[i] = list2[count2];
+                //System.out.println(list2[count2]);
+                count2++;
+            }
+            //System.out.println(i);
         }
-        }
-        for(int i = 0; i<list1.length; i++){
-            System.out.println(list1[i]);
-        }
+        //for(int i = 0; i<shuffled.length; i++){
+        //     System.out.println(shuffled[i]);
+        //}
     }
 
     /**
@@ -93,5 +95,15 @@ public class Shuffler {
      */
     public static void selectionShuffle(int[] values) {
         /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-	}
+        Random r = new Random();
+        int k;
+        for(int i = 0; i<values.length; i++){
+            k = r.nextInt(values.length);
+            int num = values[k];
+            int num2 = values[i];
+            values[k] = num2;
+            values[i] = num;
+        }
+
+    }
 }
