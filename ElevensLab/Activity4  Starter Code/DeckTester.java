@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * This is a class that tests the Deck class.
  */
@@ -50,7 +52,40 @@ public class DeckTester {
 		System.out.println("  deal: " + d.deal());
 		System.out.println();
 		System.out.println();
+		int[] a = {1,2,3,4};
+		int[] b = {4,2,1,5};
+		System.out.println(DeckTester.arePermutations(a,b));
 
 		/* *** TO BE COMPLETED IN ACTIVITY 4 *** */
 	}
+	
+	public static String flip(){
+	    Random r = new Random();
+	    int num = r.nextInt(3);
+	    if (num != 0){
+	        return "heads";
+	       }else{return "tails";}
+	   }
+	
+    public static boolean arePermutations(int[] x, int[] y){
+        boolean count =true;
+        int num = 0;
+        for(int i = 0; i<x.length; i++){
+            num =0;
+            for (int j = 0; j<y.length; j++){
+                if(x[i] == y[j]){
+                    count = true;
+                    num = 1;
+                    break;
+                }
+                
+            }
+            if (num != 1){
+                    return false;
+                }
+        }
+        return count;
+    }
+	   
+	
 }

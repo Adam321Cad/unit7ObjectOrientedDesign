@@ -1,3 +1,10 @@
+Activity 4:
+question 3: you would need k to equal 2 then 1 then 2 then 1
+
+
+
+
+
 Activity 5:
 Buggy1:
 Constructor or Method (isEmpty()):
@@ -31,7 +38,10 @@ anything else can have an error.
 Activity 6:
 1: you can play a 5 and a 6. there are 2 fives so there are two diffrent ways you can make the same play
 2:they do there is no other way to win the game
-3:
+3:There is no stratagy to this game because for every card say 4 for example there is only one other card that
+can be choosen to have it equal 11. So if there was for example two 4s and one 5 it does not matter which 4 you
+use because you can get another 5 later. They are all identical. If there was say a pair of 4 and 5 and a 
+9 and 2 it would be no difference which one you pick first.
 
 
 

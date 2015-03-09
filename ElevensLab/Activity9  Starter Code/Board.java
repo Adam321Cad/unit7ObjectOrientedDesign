@@ -40,6 +40,11 @@ public abstract class Board {
 		}
 		dealMyCards();
 	}
+	
+	public Card[] getCards()
+	{
+	    return cards;
+	   }
 
 	/**
 	 * Start a new game by shuffling the deck and

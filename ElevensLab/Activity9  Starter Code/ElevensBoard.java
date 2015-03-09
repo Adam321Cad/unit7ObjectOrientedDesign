@@ -53,12 +53,37 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		Card[] c = this.getCards();
+		// || (c[selectedCards.get(0)].pointValue()+c[selectedCards.get(1)].pointValue()+c[selectedCards.get(2)].pointValue()) == 0)
+		if ((c[selectedCards.get(0)].pointValue()+c[selectedCards.get(1)].pointValue()) == 11)
+		{
+		    return true;
+		  }
+		int count = 0;
+	    int count2 = 0;
+	    int count3 = 0;
+		for(int i = 0; i<selectedCards.size(); i++){
+		    if (c[selectedCards.get(i)].suit().equals("king")){
+		        count=1;
+		      }
+		      if (c[selectedCards.get(i)].suit().equals("queen")){
+		        count2=1;
+		      }
+		      if (c[selectedCards.get(i)].suit().equals("jack")){
+		        count3=1;
+		      }
+		      
+		      if( count ==1 && count2 == 1 && count3 ==1){
+		          return true;
+		      }
+		  }
+		  
+		  return false;
 	}
 
 	/**
 	 * Determine if there are any legal plays left on the board.
-	 * In Elevens, there is a legal play if the board contains
+	 * In Elevens, there is a legal play if the board cotains
 	 * (1) a pair of non-face cards whose values add to 11, or (2) a group
 	 * of three cards consisting of a jack, a queen, and a king in some order.
 	 * @return true if there is a legal play left on the board;
@@ -66,7 +91,33 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean anotherPlayIsPossible() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		Card[] c = this.getCards();
+		for(int i =0; i<c.length; i++){
+		    for(int j = 0; j<c.length; j++){
+		        if ((c[i].pointValue() + c[j].pointValue()) == 11){
+		            return true;
+		          }
+		      }
+		  }
+	    int count = 0;
+	    int count2 = 0;
+	    int count3 = 0;
+		for(int i = 0; i<c.length; i++){
+		    if (c[i].suit().equals("king")){
+		        count=1;
+		      }
+		      if (c[i].suit().equals("queen")){
+		        count2=1;
+		      }
+		      if (c[i].suit().equals("jack")){
+		        count3=1;
+		      }
+		      
+		      if( count ==1 && count2 == 1 && count3 ==1){
+		          return true;
+		      }
+		  }
+		  return false;
 	}
 
 	/**
@@ -79,6 +130,15 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		Card[] c = this.getCards();
+		for(int i =0; i<selectedCards.size(); i++){
+		    for(int j = 0; j<selectedCards.size(); j++){
+		        if ((c[selectedCards.get(i)].pointValue() + c[selectedCards.get(j)].pointValue()) == 11){
+		            return true;
+		          }
+		      }
+		  }
+		  return false;
 	}
 
 	/**
@@ -90,6 +150,25 @@ public class ElevensBoard extends Board {
 	 *              include a jack, a queen, and a king; false otherwise.
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		Card[] c = this.getCards();
+	    int count = 0;
+	    int count2 = 0;
+	    int count3 = 0;
+		for(int i = 0; i<c.length; i++){
+		    if (c[selectedCards.get(i)].suit().equals("king")){
+		        count++;
+		      }
+		      if (c[selectedCards.get(i)].suit().equals("queen")){
+		        count2++;
+		      }
+		      if (c[selectedCards.get(i)].suit().equals("jack")){
+		        count3++;
+		      }
+		      
+		      if( count ==1 && count2 == 1 && count3 ==1){
+		          return true;
+		      }
+		  }
+		  return false;
 	}
 }
